@@ -9,7 +9,7 @@ public class ZetAnalyzer
         boolean isShape;
         boolean isFill;
         boolean isColor;
-        
+
         //checks if the numbers are all same or all different
         if ((card1.getNumber()==card2.getNumber() && card1.getNumber()==card3.getNumber()) 
         || (card1.getNumber()!=card2.getNumber() && card2.getNumber()!=card3.getNumber() && card3.getNumber()!=card1.getNumber()))
@@ -50,7 +50,7 @@ public class ZetAnalyzer
         {
             isColor=false;
         }
-        
+
         //if all booleans are true, return true
         if (isNumber==true && isShape==true && isFill==true && isColor==true)
         {
@@ -58,9 +58,26 @@ public class ZetAnalyzer
         }
         return false;
     }
-    
+
     public static int[] findZet (ZetCard[] cards)
     {
-        int[] array=new int[3];
+        int [] arr=new int[3];
+        for (int i=0; i<cards.length; i++)
+        {
+            for (int x=i+1; x<cards.length; x++)
+            {
+                for (int y=x+1; y<cards.length; y++)
+                {
+                    if (isZet(cards[i],cards[x],cards[y])==true)
+                    {
+                        arr[0]=i;
+                        arr[1]=x;
+                        arr[2]=y;
+                        return arr;
+                    }
+                }
+            }
+        }
+        return arr;
     }
 }
