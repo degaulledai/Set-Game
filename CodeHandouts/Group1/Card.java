@@ -8,7 +8,7 @@
 import java.util.*;
 public class Card extends java.lang.Object
 {
-    ArrayList Cards= new ArrayList();
+    ArrayList<Card> Cards= new ArrayList<Card>();
     /**
      * Constructor for objects of class Card
      */
