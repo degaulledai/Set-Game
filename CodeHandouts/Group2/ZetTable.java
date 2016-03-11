@@ -42,14 +42,14 @@
 public class ZetTable
 {
   private final int dfltOpenCards = 12;
-  ...
+  
 
   /**
    *  Creates a new deck and opens dfltOpenCards cards.
    */
   public ZetTable()
   {
-    ...
+      Deck deck = new ArrayList(dfltOpenCards);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
   }
 
   /**
@@ -58,7 +58,14 @@ public class ZetTable
    */
   public int cardsInDeck()
   {
-    ...
+     int ctr = 0;
+   for(int i= 0; i<deck.length; i++)
+   
+   {
+       
+       ctr++;
+    }
+    return ctr;
   }
 
   /**
@@ -68,9 +75,15 @@ public class ZetTable
    *  is out of bounds.
    */
   public ZetCard getOpenCard(int i)
-  {
-    ...
-  }
+  { if(i<deck.length){
+      return deck[i];
+    }
+    else{
+        return null;
+    }
+    
+    }
+  
 
   /**
    *  Indicates whether there is a sufficient number of open cards.
@@ -78,9 +91,13 @@ public class ZetTable
    */
   public boolean enoughOpen()
   {
-    ...
+    if(numOpenCards >= dfltOpenCards){
+        return true;
+    }
+    else{
+    return false;
   }
-
+}
   /**
    *  Finds a "set" in the open cards.
    *  @return an array of the indices of the three "set" cards,
@@ -88,7 +105,9 @@ public class ZetTable
    */
   public int[] findZet()
   {
-    ...
+   int array = new int[3];
+   if(
+
   }
 
   /**
@@ -97,7 +116,12 @@ public class ZetTable
    */
   public boolean open3Cards()
   {
-    ...
+    if(deck.length>=3){
+        return true;
+    }
+    else{
+        return false;
+    }
   }
 
  /**
@@ -106,7 +130,13 @@ public class ZetTable
    */
   public void remove3Cards(int[] indices)
   {
-    ...
+    for(int i= 0; i<indices.length;i++){
+        for(int j = 0; j<deck.length; j++){
+            if(deck[j] == indices[i]){
+               deck.remove(j);
+            }
+        }
+    }
   }
 
   /**
@@ -116,9 +146,12 @@ public class ZetTable
   public void compactOpenCards()
   {
     // Partitioning algorithm (proceed from both ends):
-    ...
+    for(int i= 0; i<deck.length;i++){
+    if(deck[i] == null){
+        deck.remove(i);
+    }
   }
-
+}
   /**
    *  Returns a string representation of this "set table".
    *  @return a string that lists all the open cards (including null cards)
@@ -127,6 +160,10 @@ public class ZetTable
    */
   public String toString()
   {
-    ...
+      ArrayList<String> list = new ArrayList<String>();
+    for(int i= 0; i<deck.length;i++){
+        list.add(deck[i] + "\n");
   }
+  return list;
+}
 }
