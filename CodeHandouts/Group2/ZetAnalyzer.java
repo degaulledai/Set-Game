@@ -58,16 +58,22 @@ public class ZetAnalyzer
         }
         return false;
     }
-
+    
+    
+    // findZet finds a set in the deck, if the player needs a hint or something
     public static int[] findZet (ZetCard[] cards)
     {
+        //declaring an array to hold the set indices
         int [] arr=new int[3];
+        // i is index of 1 card, x is index of another card, y is index of another card. 
+        // use the nested for loops to traverse every card combination
         for (int i=0; i<cards.length; i++)
         {
             for (int x=i+1; x<cards.length; x++)
             {
                 for (int y=x+1; y<cards.length; y++)
                 {
+                    // first set found, put it into the array and return it
                     if (isZet(cards[i],cards[x],cards[y])==true)
                     {
                         arr[0]=i;
@@ -78,6 +84,7 @@ public class ZetAnalyzer
                 }
             }
         }
+        // if no set found, returns an empty array.
         return arr;
     }
 }
