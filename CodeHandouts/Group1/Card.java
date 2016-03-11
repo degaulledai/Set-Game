@@ -8,23 +8,23 @@
 import java.util.*;
 public class Card extends java.lang.Object
 {
-    ArrayList<Card> Cards= new ArrayList<Card>();
+    int iD;
     /**
      * Constructor for objects of class Card
      */
     public Card(int id)
     {
-        Cards = new ArrayList(id);
+        iD=id;
     }
     
     public int getId()
     {
-        return Cards;
+        return iD;
     }
     
     public boolean equals(java.lang.Object other)
     {
-        if(Cards==other){
+        if(iD==other.getId){
             return true;
         }
         else{
@@ -34,11 +34,11 @@ public class Card extends java.lang.Object
     
     public int compareTo(Card other)
     {
-        if(Cards.getId() < other)
+        if(iD < other.getId)
         {
             return -1;
         }
-        else if(Cards.getId()==other)
+        else if(iD==other.getId)
         {
             return 0;
         }
@@ -49,6 +49,6 @@ public class Card extends java.lang.Object
     
     public java.lang.String toString()
     {
-        return ("The cards id is:"+Cards.getId());
+        return ("The cards id is:"+iD);
     }
 }
