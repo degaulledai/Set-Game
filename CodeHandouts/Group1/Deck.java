@@ -54,9 +54,11 @@ public class Deck
     }
     
     public String toString () {
+        String str="";
         for (int i=0; i<cardArray.size(); i++) {
             
-            return cardArray.get(i) + "\n";
+            str+= cardArray.get(i) + "\n";
         }
+        return str;
     }
 }
