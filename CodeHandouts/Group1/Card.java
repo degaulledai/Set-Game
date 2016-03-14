@@ -1,8 +1,8 @@
 
 /**
  * Write a description of class Card here.
- * 
- * @author (your name) 
+ *
+ * @author (your name)
  * @version (a version number or a date)
  */
 import java.util.*;
@@ -22,9 +22,9 @@ public class Card extends java.lang.Object
         return iD;
     }
     
-    public boolean equals(java.lang.Object other)
+    public boolean equals(Card other)
     {
-        if(iD==other.getId){
+        if(iD==other.getId()){
             return true;
         }
         else{
@@ -34,11 +34,11 @@ public class Card extends java.lang.Object
     
     public int compareTo(Card other)
     {
-        if(iD < other.getId)
+        if(iD < other.getId())
         {
             return -1;
         }
-        else if(iD==other.getId)
+        else if(iD==other.getId())
         {
             return 0;
         }
