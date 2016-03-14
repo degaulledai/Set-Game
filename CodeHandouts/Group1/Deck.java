@@ -3,59 +3,60 @@
  */
 
 /*
-
-Tips:
-
-- Use an ArrayList<Card> to hold the cards.
-- Add and remove cards at the end of the list.
-- Use Collections.shuffle and Collections.sort to shuffle and sort the deck,
-or write your own methods.  If you write your own, use selection sort
-to sort and a similar algorithm to shuffle.  Use Math.random().
-- In the toString method, separate strings for individual cards with "\n".
-
+ 
+ Tips:
+ 
+ - Use an cardArray<Card> to hold the cards.
+ - Add and remove cards at the end of the list.
+ - Use Collections.shuffle and Collections.sort to shuffle and sort the deck,
+ or write your own methods.  If you write your own, use selection sort
+ to sort and a similar algorithm to shuffle.  Use Math.random().
+ - In the toString method, separate strings for individual cards with "\n".
+ 
  */
 
 import java.util.*;
 
 public class Deck
 {
+    private ArrayList <Card> cardArray;
     public Deck (int capacity) {
-        ArrayList <Card> arrayList = new ArrayList <Card> (capacity);
-
+        cardArray = new ArrayList <Card> (capacity);
+        
     }
-
+    
     public void add (Card card) {
-        arrayList.add();
+        cardArray.add(card);
     }
-
+    
     public void remove (Card card) {
-        arrayList.remove();
+        cardArray.remove(card);
     }
-
+    
     public int getNumCards() {
-        return arrayList.size();
+        return cardArray.size();
     }
-
+    
     public boolean isEmpty() {
-        return arrayList.isEmpty();
+        return cardArray.isEmpty();
     }
-
+    
     public void shuffle () {
-        Collections.shuffle (arrayList);
+        Collections.shuffle (cardArray);
     }
-
+    
     public void sort () {
-        Collections.sort (arrayList);
+        Collections.sort (cardArray);
     }
-
+    
     public Card takeTop() {
-        return arrayList.get(0);
+        return cardArray.get(0);
     }
-
+    
     public String toString () {
-for (int i=0; i<arrayList.size(); i++) {
-
-    return arrayList.get(i) + "\n";
+        for (int i=0; i<cardArray.size(); i++) {
+            
+            return cardArray.get(i) + "\n";
+        }
     }
-}
 }
