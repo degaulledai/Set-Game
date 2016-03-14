@@ -2,16 +2,17 @@ import java.lang.Comparable;
 public class ZetCard extends Card
 {
     
-    private int number; 
-    private int shape; 
-    private int fill; 
+    private int number;
+    private int shape;
+    private int fill;
     private int color;
     
-    public ZetCard(int n, int s, int f, int c)
+    public ZetCard(int id, int n, int s, int f, int c)
     {
-        number = n; 
-        shape = s; 
-        fill = f; 
+        super(id);
+        number = n;
+        shape = s;
+        fill = f;
         color = c;
     }
     public int getNumber()
@@ -28,7 +29,7 @@ public class ZetCard extends Card
     }
     public int getColor()
     {
-        return color; 
+        return color;
     }
     public String toString()
     {
@@ -50,7 +51,7 @@ public class ZetCard extends Card
         if (color == 2)
             card +="green ";
         if (color == 3)
-            card +="blue "; 
+            card +="blue ";
         return card;
     }
 }
