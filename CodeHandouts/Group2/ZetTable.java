@@ -39,17 +39,18 @@
  
  */
 import java.util.*;
+import java.util.Arrays;
 public class ZetTable
 {
     private final int dfltOpenCards = 12;
     private int numOpenCards = 12;
-    private ArrayList <Integer> deck=new ArrayList <Integer>();
+    private ZetCard[] deck;
     /**
      *  Creates a new deck and opens dfltOpenCards cards.
      */
     public ZetTable()
     {
-        deck=(dfltOpenCards);
+        deck = new ZetCard[dfltOpenCards];
     }
     
     /**
@@ -59,10 +60,8 @@ public class ZetTable
     public int cardsInDeck()
     {
         int ctr = 0;
-        for(int i= 0; i<deck.length; i++)
-            
+        for(int i= 0; i<12; i++)
         {
-            
             ctr++;
         }
         return ctr;
@@ -76,7 +75,7 @@ public class ZetTable
      */
     
     public ZetCard getOpenCard(int i)
-    { if(i<deck.length){
+    { if(i<12){
         return deck[i];
     }
     else{
@@ -106,7 +105,8 @@ public class ZetTable
      */
     public int[] findZet()
     {
-        ZetAnalyzer.findZet();
+        return ZetAnalyzer.findZet(deck);
+        
     }
     /**
      *  Opens three cards from the deck if three cards are available in the deck.
@@ -130,9 +130,10 @@ public class ZetTable
     {
         for(int i= 0; i<indices.length;i++){
             for(int j = 0; j<deck.length; j++){
-                if(deck[j] == indices[i]){
-                    deck.remove(j);
-                }
+                if(deck[j].getNumber()==indices[i] ){
+                        deck[j]=null;
+                        compactOpenCards();
+                }                
             }
         }
     }
@@ -146,10 +147,14 @@ public class ZetTable
         // Partitioning algorithm (proceed from both ends):
         for(int i= 0; i<deck.length;i++){
             if(deck[i] == null){
-                deck.remove(i);
+                deck[i] = deck[i-1];
             }
         }
-    }
+        
+            
+            
+        }
+    
     
     /**
      *  Returns a string representation of this "set table".
@@ -163,6 +168,6 @@ public class ZetTable
         for(int i= 0; i<deck.length;i++){
             list.add(deck[i] + "\n");
         }
-        return list;
+        return deck.toString();
     }
 }
