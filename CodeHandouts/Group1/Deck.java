@@ -20,8 +20,8 @@ import java.util.*;
 public class Deck
 {
     private ArrayList <Card> cardArray;
-    public Deck (int capacity) {
-        cardArray = new ArrayList <Card> (capacity);
+    public Deck () {
+        cardArray = new ArrayList <Card> ();
 
     }
 
