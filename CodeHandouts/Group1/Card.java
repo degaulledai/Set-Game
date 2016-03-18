@@ -1,14 +1,14 @@
 
 /**
  * Write a description of class Card here.
- *
- * @author (your name)
+ * 
+ * @author (your name) 
  * @version (a version number or a date)
  */
 import java.util.*;
-public class Card extends java.lang.Object
+public class Card extends java.lang.Object implements Comparable<Card>
 {
-    int iD;
+    private int iD;
     /**
      * Constructor for objects of class Card
      */
